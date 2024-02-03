@@ -1,0 +1,129 @@
+#projects {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#projects div {
+  cursor: default;
+}
+
+.projects-container,
+.projects-sub-container,
+.ind-proj-container,
+.project-description {
+  display: flex;
+}
+
+.projects-container,
+.ind-proj-container {
+  flex-direction: column;
+}
+
+.projects-container {
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.projects-sub-container {
+  height: 100%;
+  gap: 5%;
+  padding: 0 2rem;
+}
+
+.projects-sub-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.ind-proj-container {
+  flex: 1 0 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+  box-sizing: border-box;
+  padding: 0px;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+}
+
+.ind-proj-container {
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.proj {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  padding: 1.5rem; 
+}
+
+.proj:hover {
+  background-color: #0F0F0F;
+  color: #00F48E;
+  transition: all 10ms ease-in-out;
+}
+
+.proj-name {
+  margin-top: 1rem;
+}
+
+
+.ind-proj-container a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.proj-link img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.projects-title a:hover {
+  color: #00F48E;
+  .accent-color {
+    color: #000000;
+  }
+}
+
+
+@media (max-width: 1200px) {
+  #project {
+    height: auto;
+  }
+
+  .projects-container {
+    padding-top: 60vh;
+  }
+
+  .ind-proj-container {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 999px) {
+  .ind-proj-container {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+
+

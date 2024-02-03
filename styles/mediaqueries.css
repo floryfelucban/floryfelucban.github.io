@@ -1,0 +1,64 @@
+@media screen and (max-width: 1400px) { 
+  #contact,
+  #projects {
+    height: fit-content;
+  }
+
+  .arrow {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #desktop-navigation {
+    display: none;
+  }
+  
+  #mobile-navigation {
+    display: flex;
+  }
+
+  #profile {
+    display: block;
+  }
+
+  section {
+    height: fit-content;
+  }
+
+  section {
+    margin: 0 5%;
+  }
+}
+
+
+@media screen and (max-width: 600px) { 
+  body section {
+    padding: 0 1rem;
+  }
+
+  .greeting,
+  .hand-wave,
+  .name-title {
+    font-size: 4rem;
+  }
+
+  .static-description,
+  .aspirations-dynamic-lists {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .section-title {
+    font-size: 4rem;
+  }
+
+  #contact .contact-container .contact-details p a {
+    font-size: 1.3rem; 
+  }
+
+  .contact-icon1,
+  .contact-icon2 {
+    width: 2.5rem;
+  }
+}

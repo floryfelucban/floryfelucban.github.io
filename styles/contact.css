@@ -1,0 +1,91 @@
+#contact {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+#contact div {
+  cursor: default;
+}
+
+.contact-container,
+.contact-details,
+.contact-row {
+  display: flex;
+}
+
+.contact-container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-title a:hover {
+  color: #00F48E;
+  .accent-color {
+    color: #000000;
+  }
+}
+
+.contact-details,
+.contact-row {
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-details {
+  border-radius: 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  gap: 6rem;
+  padding: 2.5rem 8rem;
+  margin: 3rem 0;
+}
+
+.contact-row {
+  gap: 1.5rem;
+}
+
+.contact-icon1 {
+  width: 3rem;
+}
+
+.contact-icon2 {
+  width: 2.5rem;
+}
+
+p a {
+  font-size: 1.5rem;
+  color: #000000;
+  text-decoration: none;
+}
+
+.open-contact {
+  cursor: pointer;
+}
+
+.open-contact:hover,
+.facebook:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+@media screen and (max-width: 1400px) {
+  .contact-container {
+    padding-top: 20vh;
+  }
+}
+
+
+@media (max-width: 700px) { 
+  .contact-details {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .contact-icon2 {
+    width: 3rem;
+  }
+}

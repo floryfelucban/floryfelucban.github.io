@@ -1,0 +1,129 @@
+#about {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#about div {
+  cursor: default;
+}
+
+.about-container,
+.about-details,
+.content-section,
+.education-section,
+.edu-details-row,
+.edu-year,
+.achievements-and-interest-section {
+  display: flex;
+}
+
+.about-container,
+.content-section,
+.education-section {
+  flex-direction: column;
+}
+
+.about-container,
+.content-section,
+.edu-details-row {
+  justify-content: space-between;
+}
+
+.about-container {
+  gap: 4rem;
+}
+
+.about-details {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content-section {
+  width: 40vw;
+  gap: 4rem;
+}
+
+.profile-picture-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+
+.section-subtitle {
+  margin-bottom: 1rem;
+}
+
+.edu-details-row,
+.ani-details {
+  border-top: 1px solid #000000;
+}
+
+.edu-details-row {
+  padding: 1rem 1.5rem;
+}
+
+.edu-details-row:hover,
+.ani-details:hover {
+  background-color: #00f48e19;
+  transition: all 300ms ease;
+}
+
+.school-name {
+  font-weight: 500;
+}
+
+.edu-year {
+  justify-content: end;
+}
+
+.achievements-and-interest-section {
+  gap: 2.5rem;
+}
+
+.ani-details {
+  padding: 1rem 0.5rem;
+}
+
+.arrow {
+  position: absolute;
+  right: 3rem;
+  bottom: 3rem;
+}
+
+
+@media screen and (max-width: 1100px) {
+  #about {
+    height: auto;
+    padding: 5rem 0 2rem;
+  }
+
+  #about .about-container {
+    gap: 2rem;
+  }
+
+  #about .about-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  #about .profile-picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  #about .profile-picture-container .about-picture {
+    height: 90%;
+  }
+
+  #about .about-container .about-details .content-section {
+    width: 100%;
+  }
+}

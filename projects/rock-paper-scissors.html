@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="icon" href="/assets/rps-icon-2.svg" type="image/png/svg">
+    <style>
+      /* Import Google font - Poppins */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        background: #f6f7fb;
+        padding-bottom: 2rem;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 100%;
+        height: 15vh;
+        padding: 0 6em;
+        color: white;
+      }
+
+      header img {
+        width: 60px;
+        margin-right: 1rem;
+      }
+
+      ::selection {
+        color: #fff;
+        background-color: #000000;
+      }
+
+      .container {
+        padding: 2rem 7rem;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 8vh;
+      }
+
+      .result_images {
+        display: flex;
+        column-gap: 7rem;
+      }
+
+      .container.start .user_result {
+        transform-origin: left;
+        animation: userShake 0.7s ease infinite;
+      }
+      @keyframes userShake {
+        50% {
+          transform: rotate(10deg);
+        }
+      }
+
+      .container.start .computer_result {
+        transform-origin: right;
+        animation: computerShake 0.7s ease infinite;
+      }
+      @keyframes computerShake {
+        50% {
+          transform: rotate(-10deg);
+        }
+      }
+
+      .result_images img {
+        width: 100px;
+      }
+
+      .user_result img {
+        transform: rotate(90deg);
+      }
+
+      .computer_result img {
+        transform: rotate(-90deg) rotateY(180deg);
+      }
+
+      .result {
+        text-align: center;
+        font-size: 2rem;
+        color: #000000;
+        margin-top: 1.5rem;
+      }
+
+      .option_image img {
+        width: 50px;
+      }
+
+      .option_images {
+        display: flex;
+        align-items: center;
+        margin-top: 2.5rem;
+        justify-content: space-between;
+      }
+
+      .container.start .option_images {
+        pointer-events: none;
+      }
+
+      .option_image {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+
+      .option_image:hover {
+        opacity: 1;
+      }
+
+      .option_image.active {
+        opacity: 1;
+      }
+
+      .option_image img {
+        pointer-events: none;
+      }
+
+      .option_image p {
+        color: #000000;
+        font-size: 1.235rem;
+        margin-top: 1rem;
+        pointer-events: none;
+      }
+
+      .result-2 {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .result-2 p {
+        font-size: 1.235rem;
+        border-radius: 1rem;
+        background: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+      }
+
+      #resetButton {
+        background-color: white;
+        padding: 0.5rem 1rem;
+        margin-top: 1.8rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+        border-radius: 1rem;
+      }
+
+      #resetButton:hover {
+        background-color: #FBB830;
+        transition: all 300ms ease;
+      }
+
+      @media (max-width: 640px) {
+
+        .rps header {
+          padding: 0 1rem;
+        }
+
+        .rps header h1 {
+          font-size: 5vw;
+        }
+
+        .rps header img {
+        width: 40px;
+        }
+
+        .rps .container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 90%;
+        }
+
+        .rps .container .result_images {
+          gap: 1rem;
+        }
+
+        .option_image .rp {
+          margin: 0 1rem;
+        }
+
+        .result_images {
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .rps header h1 {
+          font-size: 1rem;
+        }
+
+        .rps header img {
+        width: 40px;
+        }
+      }
+      </style>
+  </head>
+  <body class="rps">
+    <header>
+      <img src="/assets/rps-logo.svg" alt="Logo">
+      <h1>Rock, Paper, Scissors!</h1>
+    </header>
+    <section class="container">
+      <div>
+        <div class="result_field">
+          <div class="result_images">
+            <span class="user_result">
+              <img src="/assets/rock-1.png" alt="" />
+            </span>
+            <span class="computer_result ">
+              <img src="/assets/rock-1.png" alt="" />
+            </span>
+          </div>
+          <div class="result">Start the game!</div>
+        </div>
+      
+        <div class="option_images">
+          <span class="option_image">
+            <img class="rp" src="/assets/rock-1.png" alt="" />
+            <p>Rock</p>
+          </span>
+          <span class="option_image">
+            <img class="rp mid"  src="/assets/paper-1.png" alt="" />
+            <p>Paper</p>
+          </span>
+          <span class="option_image">
+            <img src="/assets/scissors-1.png" alt="" />
+            <p>Scissors</p>
+          </span>
+        </div>
+      </div>
+    </section>
+    
+    <div class="result result-2">
+      <p>Wins: <span class="user-score">0</span></p>
+      <p>Losses: <span class="computer-score">0</span></p>
+      <p>Ties: <span class="tie-score">0</span></p>
+    </div>
+
+    <button id="resetButton">Reset Scores</button>
+
+    <script>
+      // DOM elements
+      const gameContainer = document.querySelector(".container"),
+        userResult = document.querySelector(".user_result img"),
+        computerResult = document.querySelector(".computer_result img"),
+        result = document.querySelector(".result"),
+        userScoreDisplay = document.querySelector(".user-score"),
+        computerScoreDisplay = document.querySelector(".computer-score"),
+        tieScoreDisplay = document.querySelector(".tie-score"),
+        optionImages = document.querySelectorAll(".option_image");
+
+      // Update scores 
+      const updateScores = () => {
+        userScoreDisplay.textContent = userScore;
+        computerScoreDisplay.textContent = computerScore;
+        tieScoreDisplay.textContent = tieScore;
+
+        localStorage.setItem('userScore', userScore);
+        localStorage.setItem('computerScore', computerScore);
+        localStorage.setItem('tieScore', tieScore);
+      };
+
+      let userScore = parseInt(localStorage.getItem('userScore')) || 0;
+      let computerScore = parseInt(localStorage.getItem('computerScore')) || 0;
+      let tieScore = parseInt(localStorage.getItem('tieScore')) || 0;
+
+      // Display scores on page load
+      updateScores();
+
+      optionImages.forEach((image, index) => {
+        image.addEventListener("click", (e) => {
+          image.classList.add("active");
+
+          userResult.src = computerResult.src = "/assets/rock-1.png";
+          result.textContent = "Wait...";
+
+          optionImages.forEach((image2, index2) => {
+          
+            index !== index2 && image2.classList.remove("active");
+          });
+
+          gameContainer.classList.add("start");
+
+          let time = setTimeout(() => {
+            gameContainer.classList.remove("start");
+
+            let imageSrc = e.target.querySelector("img").src;
+            userResult.src = imageSrc;
+
+            let randomNumber = Math.floor(Math.random() * 3);
+            let computerImages = ["/assets/rock-1.png", "/assets/paper-1.png", "/assets/scissors-1.png"];
+
+            computerResult.src = computerImages[randomNumber];
+
+            let computerValue = ["R", "P", "S"][randomNumber];
+            let userValue = ["R", "P", "S"][index];
+
+            let outcomes = {
+              RR: "Draw",
+              RP: "Computer",
+              RS: "You",
+              PP: "Draw",
+              PR: "You",
+              PS: "Computer",
+              SS: "Draw",
+              SR: "Computer",
+              SP: "You",
+            };
+
+            let outComeValue = outcomes[userValue + computerValue];
+
+            // Update scores 
+            if (outComeValue === "You") {
+              userScore++;
+            } else if (outComeValue === "Computer") {
+              computerScore++;
+            } else {
+              tieScore++;
+            }
+
+            // Display the result and update scores
+            result.textContent = userValue === computerValue ? "Tie." : `${outComeValue} Won!`;
+            updateScores();
+          }, 2500);
+        });
+      });
+
+      const resetButton = document.getElementById('resetButton');
+
+      // Reset scores and update the display
+      const resetScores = () => {
+        userScore = 0;
+        computerScore = 0;
+        tieScore = 0;
+
+        updateScores();
+      };
+
+      resetButton.addEventListener('click', resetScores);
+    </script>
+  </body>
+</html>
